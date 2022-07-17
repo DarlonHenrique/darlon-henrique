@@ -7,7 +7,7 @@ export default function Header() {
         Darlon Henrique
       </Text>
       <Text fontSize='3xl' marginInline={'10'} maxWidth='1000' textAlign='center' fontWeight=''>
-        Hi dear, I'm Darlon Henrique, a web developer and software engineer from
+        Hi dear, I am Darlon Henrique, a web developer and software engineer from
         brazil, welcome to my website!
       </Text>
     </Flex>
