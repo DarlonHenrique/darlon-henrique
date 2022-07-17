@@ -32,7 +32,8 @@ const Home: NextPage<{ repos: Repositories }> = ({ repos }) => {
           color={'foreground'}
           align={'center'}
           fontWeight={'bold'}
-          fontSize={'3xl'}
+          fontSize={['3xl', '4xl', '5xl']}
+          my={'5'}
         >
           My Github Projects
         </Text>
