@@ -3,7 +3,7 @@ import { Octokit } from 'octokit'
 import { Endpoints } from '@octokit/types'
 import Header from '../components/Header'
 import { ProjectCard } from '../components/ProjectCard'
-import { Center, Container, Flex, Grid, Text } from '@chakra-ui/react'
+import { Container, Flex, Grid, Text } from '@chakra-ui/react'
 
 type Repositories = Endpoints['GET /users/{username}/repos']['response']['data']
 
@@ -41,6 +41,7 @@ const Home: NextPage<{ repos: Repositories }> = ({ repos }) => {
             .filter(repo => repo.topics?.includes('portfolio'))
             .map(repo => (
               <ProjectCard
+                key={repo.id}
                 name={repo.name}
                 description={repo.description}
                 topics={repo.topics}
