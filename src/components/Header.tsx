@@ -1,14 +1,27 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Button, Flex, Switch, Text, useColorMode } from '@chakra-ui/react'
 
 export default function Header() {
+  const { toggleColorMode } = useColorMode()
+
   return (
-    <Flex direction='column' align='center' mt='2' justify='center'>
-      <Text fontSize='5xl' align={'center'} fontWeight='black'>
-        Darlon Henrique
-      </Text>
-      <Text fontSize='3xl' marginInline={'10'} maxWidth='1000' textAlign='center' fontWeight=''>
-        Hi dear, I am Darlon Henrique, a web developer and software engineer from
-        brazil, welcome to my website!
+    <Flex direction='column' m={'10'} align='left' justify='center'>
+      <Flex justify={'space-between'} >
+        <Text fontSize='5xl' mb={'10'} align={'left'} fontWeight='black'>
+          Darlon Henrique
+        </Text>
+
+        <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
+      </Flex>
+
+      <Text
+        fontSize={['2xl', '2xl']}
+        maxWidth='600'
+        color={'gray.400'}
+        textAlign='left'
+        fontWeight={'medium'}
+      >
+        Hi dear, I am Darlon Henrique, a web developer and software engineer
+        from brazil, welcome to my website!
       </Text>
     </Flex>
   )

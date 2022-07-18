@@ -1,13 +1,5 @@
 import Image from 'next/image'
-import {
-  Box,
-  Center,
-  Heading,
-  Text,
-  Stack,
-  Avatar,
-  useColorModeValue
-} from '@chakra-ui/react'
+import { Box, Center, Heading, Text, Stack, Avatar} from '@chakra-ui/react'
 
 interface ProjectCardProps {
   name: String

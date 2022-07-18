@@ -3,7 +3,7 @@ import { Octokit } from 'octokit'
 import { Endpoints } from '@octokit/types'
 import Header from '../components/Header'
 import { ProjectCard } from '../components/ProjectCard'
-import { Container, Flex, Grid, Text } from '@chakra-ui/react'
+import { Container, Flex, Grid, Heading, Text } from '@chakra-ui/react'
 
 type Repositories = Endpoints['GET /users/{username}/repos']['response']['data']
 
@@ -28,15 +28,16 @@ const Home: NextPage<{ repos: Repositories }> = ({ repos }) => {
     <>
       <Header />
       <Container maxW={'full'} bgColor={'selection'} mt={'10'} p={'5'}>
-        <Text
+        <Heading
           color={'foreground'}
-          align={'center'}
+          as={'h1'}
+          textAlign={'center'}
           fontWeight={'bold'}
           fontSize={['3xl', '4xl', '5xl']}
           my={'5'}
         >
           My Github Projects
-        </Text>
+        </Heading>
         <Flex justify={'space-around'} wrap={'wrap'}>
           {repos
             .filter(repo => repo.topics?.includes('portfolio'))
