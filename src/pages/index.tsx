@@ -1,11 +1,10 @@
-import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import { Octokit } from 'octokit'
 import { Endpoints } from '@octokit/types'
 import Header from '../components/Header'
-import { ProjectCard } from '../components/ProjectCard'
-import { Container, Flex, Grid, Heading, Text } from '@chakra-ui/react'
+import { Projects } from '../components/Projects'
 
-type Repositories = Endpoints['GET /users/{username}/repos']['response']['data']
+export type Repositories = Endpoints['GET /users/{username}/repos']['response']['data']
 
 export const getStaticProps: GetStaticProps = async () => {
   const octokit = new Octokit({
@@ -27,30 +26,7 @@ const Home: NextPage<{ repos: Repositories }> = ({ repos }) => {
   return (
     <>
       <Header />
-      <Container maxW={'full'} bgColor={'selection'} mt={'10'} p={'5'}>
-        <Heading
-          color={'foreground'}
-          as={'h1'}
-          textAlign={'center'}
-          fontWeight={'bold'}
-          fontSize={['3xl', '4xl', '5xl']}
-          my={'5'}
-        >
-          My Github Projects
-        </Heading>
-        <Flex justify={'space-around'} wrap={'wrap'}>
-          {repos
-            .filter(repo => repo.topics?.includes('portfolio'))
-            .map(repo => (
-              <ProjectCard
-                key={repo.id}
-                name={repo.name}
-                description={repo.description}
-                topics={repo.topics}
-              />
-            ))}
-        </Flex>
-      </Container>
+      <Projects repos={repos}/>
     </>
   )
 }
