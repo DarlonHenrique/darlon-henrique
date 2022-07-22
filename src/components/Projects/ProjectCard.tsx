@@ -13,7 +13,7 @@ export function ProjectCard({ name, description, topics, href }: ProjectCardProp
   const bgCard = useColorModeValue('#F8F8F2', '#282A36')
 
   return (
-    <a href={href} target='_blank'>
+    <a href={href} target='_blank' rel="noreferrer" >
     <Center cursor={'pointer'} py={6}>
       <Box
         w={[300, 400]}
