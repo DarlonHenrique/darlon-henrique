@@ -31,6 +31,8 @@ export function Projects({repos}: ProjectsProps) {
                 description={repo.description}
                 topics={repo.topics}
                 href={repo.html_url}
+                avatar={repo.owner.avatar_url}
+                updatedAt={repo.updated_at}
               />
             ))}
         </Flex>

@@ -7,9 +7,11 @@ interface ProjectCardProps {
   description: string | null
   topics: string[] | undefined
   href: string
+  avatar: string
+  updatedAt: string
 }
 
-export function ProjectCard({ name, description, topics, href }: ProjectCardProps) {
+export function ProjectCard({ name, description, topics, href, avatar, updatedAt }: ProjectCardProps) {
   const bgCard = useColorModeValue('#F8F8F2', '#282A36')
 
   return (
@@ -34,7 +36,7 @@ export function ProjectCard({ name, description, topics, href }: ProjectCardProp
         >
           <Image
             src={
-              'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+              `https://raw.githubusercontent.com/DarlonHenrique/${name}/main/${name}.jpeg`
             }
             layout={'fill'}
           />
@@ -64,11 +66,11 @@ export function ProjectCard({ name, description, topics, href }: ProjectCardProp
         </Stack>
         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
           <Avatar
-            src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
+            src={avatar}
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={'gray.400'}>Feb 08, 2021 · 6min read</Text>
+            <Text fontWeight={600}>Darlon Henrique</Text>
+            <Text color={'gray.400'}>{new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(updatedAt))}</Text>
           </Stack>
         </Stack>
       </Box>
