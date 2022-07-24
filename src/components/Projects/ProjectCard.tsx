@@ -8,7 +8,7 @@ interface ProjectCardProps {
   topics: string[] | undefined
   href: string
   avatar: string
-  updatedAt: string
+  updatedAt: string | null | undefined 
 }
 
 export function ProjectCard({ name, description, topics, href, avatar, updatedAt }: ProjectCardProps) {
@@ -70,7 +70,7 @@ export function ProjectCard({ name, description, topics, href, avatar, updatedAt
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
             <Text fontWeight={600}>Darlon Henrique</Text>
-            <Text color={'gray.400'}>{new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(updatedAt))}</Text>
+            <Text color={'gray.400'}>{updatedAt && new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(updatedAt))}</Text>
           </Stack>
         </Stack>
       </Box>
