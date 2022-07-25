@@ -13,6 +13,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ name, description, topics, href, avatar, updatedAt }: ProjectCardProps) {
   const bgCard = useColorModeValue('#F8F8F2', '#282A36')
+  const borderColor = useColorModeValue('#383A59', '#F8F8F2')
 
   return (
     <a href={href} target='_blank' rel="noreferrer" >
@@ -33,6 +34,8 @@ export function ProjectCard({ name, description, topics, href, avatar, updatedAt
           mb={6}
           pos={'relative'}
           overflow={'hidden'}
+          borderBottom={'1px solid'}
+          borderColor={borderColor}
         >
           <Image
             src={
@@ -67,6 +70,7 @@ export function ProjectCard({ name, description, topics, href, avatar, updatedAt
         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
           <Avatar
             src={avatar}
+            name={'Darlon Henrique'}
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
             <Text fontWeight={600}>Darlon Henrique</Text>
